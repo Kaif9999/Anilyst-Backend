@@ -18,7 +18,7 @@ app = FastAPI(title="Data Analysis API", description="API for analyzing chart da
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3001", "http://localhost:3002", "http://localhost:3000", "https://anilyst.tech", "https://www.anilyst.tech"],  # Your Next.js frontend URLs
+    allow_origins=["http://localhost:3000", "https://anilyst.tech", "https://www.anilyst.tech","http://127.0.0.1:3000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -31,7 +31,7 @@ async def log_requests(request: Request, call_next):
     
     # Log the request
     logger.info(f"Request: {request.method} {request.url.path}")
-    
+     
     # Process the request and get the response
     try:
         response = await call_next(request)

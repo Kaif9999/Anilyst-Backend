@@ -31,7 +31,7 @@ def fix_numpy_types(obj):
     elif isinstance(obj, np.bool_):
         return bool(obj)
     elif isinstance(obj, BaseModel):
-        # Handle Pydantic models by converting to dict first
+        #Pydantic models to dict first
         return fix_numpy_types(obj.dict())
     else:
         return obj
