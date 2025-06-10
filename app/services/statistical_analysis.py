@@ -8,13 +8,12 @@ from pydantic import BaseModel
 
 logger = logging.getLogger(__name__)
 
-# Fix for numpy.bool error
 def safe_bool(value):
     """Convert numpy bool types to standard Python bool to avoid serialization issues"""
     if isinstance(value, np.bool_):
         return bool(value)
     return value
-
+   
 # Fix the statistics dictionary by converting numpy types to Python types
 def fix_numpy_types(obj):
     """Recursively convert numpy types to Python standard types for JSON serialization"""
